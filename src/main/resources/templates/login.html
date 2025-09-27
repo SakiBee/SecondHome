@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<section>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row w-100">
+            <div class="col-lg-5 col-md-7 mx-auto">
+                <div class="card shadow-lg border-0 rounded-4">
+
+                    <div class="card-header bg-custom-teal text-white text-center rounded-top-4 py-3">
+                        <h2 class="mb-0 fw-bold">Welcome Back!</h2>
+                        <p class="mb-0">Sign in to your account.</p>
+                    </div>
+
+                    <div class="card-body px-5 py-4">
+
+                        <div th:if="${param.error}" class="alert alert-danger text-center fw-semibold" role="alert">
+                            [[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]
+                        </div>
+                        <div th:if="${param.logout}" class="alert alert-success text-center fw-semibold" role="alert">
+                            You have been logged out successfully!
+                        </div>
+
+                        <form action="/login" method="post" class="needs-validation" novalidate>
+
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-semibold">Email Address</label>
+                                <input class="form-control form-control-lg" id="username" name="username" type="email" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-semibold">Password</label>
+                                <input class="form-control form-control-lg" id="password" name="password" type="password" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-custom-teal btn-lg w-100 fw-bold">
+                                <i class="bi bi-box-arrow-in-right me-2"></i> Log In
+                            </button>
+                        </form>
+
+                        <div class="text-center mt-3">
+                            <a href="/forgot_password" class="text-secondary fw-semibold text-decoration-none d-block mb-2">Forgot Password?</a>
+
+                            <p class="text-muted mb-0">Don't have an account?
+                                <a href="/register" class="text-custom-teal fw-bold text-decoration-none">Create one</a>
+                            </p>
+                        </div>
+                    </div> </div> </div> </div> </div> </section>
+</body>
+</html>

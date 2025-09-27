@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+</head>
+<body>
+<div th:fragment="footer">
+    <footer class="bg-custom-teal text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-3">Bee-Shop</h5>
+                    <p class="small text-white-50">
+                        Your one-stop destination for the best products. Quality and customer satisfaction are our top priorities.
+                    </p>
+                    <div class="d-flex mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="/shop" class="text-white-50 text-decoration-none small">Shop</a></li>
+                        <li class="mb-2"><a href="/about" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="/contact" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-3">Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/privacy" class="text-white-50 text-decoration-none small">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="/returns" class="text-white-50 text-decoration-none small">Returns & Refunds</a></li>
+                        <li class="mb-2"><a href="/terms" class="text-white-50 text-decoration-none small">Terms of Service</a></li>
+                        <li class="mb-2"><a href="/faq" class="text-white-50 text-decoration-none small">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-3">Get in Touch</h5>
+                    <p class="small text-white-50 mb-1">
+                        <i class="bi bi-geo-alt-fill me-2"></i> 123 E-Commerce Blvd, City, 10001
+                    </p>
+                    <p class="small text-white-50 mb-1">
+                        <i class="bi bi-envelope-fill me-2"></i> support@bee-shop.com
+                    </p>
+                    <p class="small text-white-50 mb-1">
+                        <i class="bi bi-phone-fill me-2"></i> +1 234 567 8900
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-fluid border-top border-white border-opacity-25 mt-3 pt-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-white-50">&copy; [[${#dates.year(#dates.createNow())}]] bee-shop.com. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

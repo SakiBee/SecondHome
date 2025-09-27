@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div class="container-fluid mt-3 p-5">
+        <div class="card card-sh">
+            <div class="card-header text-center">
+                <p class="fs-4">Users</p>
+                <th:block th:if="${successMsg}">
+                    <p class="text-success fw-bold">[[${successMsg}]]</p>
+                </th:block>
+                <th:block th:if="${errorMsg}">
+                    <p class="text-danger fw-bold">[[${errorMsg}]]</p>
+                </th:block>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Serial No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Post Code</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">UpdateStatus</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="u, c : ${users}">
+                        <th scope="row">[[${c.count}]]</th>
+                        <td>[[${u.name}]]</td>
+                        <td>[[${u.email}]]</td>
+                        <td><img th:src="@{'/img/product_img/'+${u.image}}" width="80" height="55"></td>
+                        <td>[[${u.mobileNumber}]]</td>
+                        <td>[[${u.city}]]</td>
+                        <td>[[${u.postCode}]]</td>
+                        <td>[[${u.role}]]</td>
+                        <td>[[${u.isEnable}]]</td>
+                        <td>
+                            <a th:href="@{'/admin/updateStatus?status=true&id='+${u.id}}" class="btn btn-primary btn-sm">Active</a>
+                            <a th:href="@{'/admin/updateStatus?status=false&id='+${u.id}}" class="btn btn-danger btn-sm">Inactive</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/admin/deleteUser/'+${u.id}}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash fa-1x"></i>Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

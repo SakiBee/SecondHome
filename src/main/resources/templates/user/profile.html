@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<section>
+    <div class="container-fluid mt-6 p-5">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 mt-3">
+                <div class="card card-sh">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <p class="fs-3 text-center">My Profile</p>
+                            <th:block th:if="${successMsg}">
+                                <p class="text-success fw-bold">[[${successMsg}]]</p>
+                            </th:block>
+                            <th:block th:if="${errorMsg}">
+                                <p class="text-danger fw-bold">[[${errorMsg}]]</p>
+                            </th:block>
+                        </div>
+                        <hr>
+
+                        <form action="/user/updateProfile" method="post" enctype="multipart/form-data">
+<!--                            <div class="text-center">-->
+<!--                                <img th:src="@{/img/profile_img/{image}(image=${user.image})}" style="width:150px; height:150px; border-radius:50%;">-->
+<!--                            </div>-->
+                            <div class="text-center">
+                                <input type="file" name="file" class="d-none" id="imageInput">
+                                <img th:src="@{'/img/profile_img/' + ${user.image}}" class="rounded-circle img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
+                                <label for="imageInput" style="cursor: pointer;">
+                                    <i class="fa-solid fa-camera position-absolute bg-white mt-4 rounded-circle p-2 border" style="font-size: 18px;"></i>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 offset-md-3 mt-3">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Name </th>
+                                            <td>:</td>
+                                            <td><input type="text" name="name" class="form-control" th:value="${user.name}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Mobile Number </th>
+                                            <td>:</td>
+                                            <td><input type="text" name="mobileNumber" class="form-control" th:value="${user.mobileNumber}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email </th>
+                                            <td>:</td>
+                                            <td><input type="email" name="email" class="form-control" th:value="${user.email}" readonly></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">City </th>
+                                            <td>:</td>
+                                            <td><input type="text" name="city" class="form-control" th:value="${user.city}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Post Code </th>
+                                            <td>:</td>
+                                            <td><input type="number" name="postCode" class="form-control" th:value="${user.postCode}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Role </th>
+                                            <td>:</td>
+                                            <td><input type="text" name="role" class="form-control" th:value="${user.role}" readonly></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Account Status </th>
+                                            <td>:</td>
+                                            <td><input type="text" name="isEnable" class="form-control" th:value="${user.isEnable}" readonly>
+                                                <input type="hidden" name="id" th:value="${user.id}">
+                                            </td>
+                                        </tr>
+<!--                                        <tr>-->
+<!--                                            <th scope="row">Image</th>-->
+<!--                                            <td>:</td>-->
+<!--                                            <td><input type="file" name="file" class="form-control" value="">-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-primary text-light">Update</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="col-md-10 offset-md-1 mt-1">
+                            <div class="row">
+                                <p class="text-center fs-3">Change Password</p>
+                                <div class="col-md-6 offset-md-3">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                        <form action="/user/changePassword" method="post">
+                                            <tr>
+                                                <th scope="row">Current Password</th>
+                                                <td><input type="text" name="currentPassword" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">New Password</th>
+                                                <td><input type="text" name="newPassword" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Confirm New Password</th>
+                                                <td><input type="text" name="confirmPassword" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="text-center"><button class="btn btn-primary text-light">Update</button></td>
+                                                <td></td>
+                                            </tr>
+                                        </form>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

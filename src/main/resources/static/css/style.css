@@ -1,0 +1,30 @@
+.card-sh{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.cat-div{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+/* Custom Color Palette */
+.bg-custom-teal {
+    background-color: #00796b !important; /* Deep Teal */
+}
+
+.btn-custom-teal {
+    background-color: #00796b; /* Deep Teal */
+    border-color: #00796b;
+    color: #fff;
+}
+
+.btn-custom-teal:hover {
+    background-color: #004d40; /* Darker Teal on hover */
+    border-color: #004d40;
+}
+
+.text-custom-teal {
+    color: #00796b !important;
+}
+
+/* Light background for the overall section */
+section {
+    background-color: #f8f9fa; /* A very light grey for a clean look */
+}
